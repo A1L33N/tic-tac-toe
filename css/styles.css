@@ -1,0 +1,30 @@
+#board{
+
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }
+
+
+/*.button{
+  margin-left:50%;
+  margin-right:50%;
+  position: relative;
+}*/
+
+.square{
+  width:100px;
+  height:100px;
+}
+
+.v{
+  border-left:1px solid #000;
+  border-right:1px solid #000;
+}
+
+.h{
+  border-top:1px solid #000;
+  border-bottom:1px solid #000;
+}
