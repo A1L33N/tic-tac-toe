@@ -1,72 +1,3 @@
-//
-//
-//
-//
-//
-// var Game = (function() {
-//
-//   var togglePlayer = function(message){
-//     $('.message').html(message);
-//   };
-// })
-//
-//
-//
-// var gameOver = function() {
-//   var winCases =  [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[7,5,3]];
-//   tableIndex = -1;
-//
-//   $.each(winCases, function(index, winCases) {
-//     if (allEqual(winCase)) {
-//      tableIndex = index;
-//      return false;
-//     }
-//   });
-//   if (tableIndex !== -1) {
-//     return winCases[ tableIndex];
-//   }else if (moves === 9) {
-//     return true;
-//   }
-//     else {
-//     return false;
-//   }
-// };
-//
-//
-//
-// $(document).ready(function() {
-//
-//   $("#1").click(function() {
-//     $("#1").append('<img src="img/playerX.jpg">');
-//   });
-//   $("#2").click(function() {
-//     $("#2").append('X');
-//   });
-//   $("#3").click(function() {
-//     $("#3").append('X');
-//   });
-//   $("#4").click(function() {
-//     $("#4").append('X');
-//   });
-//   $("#5").click(function() {
-//     $("#5").append('X');
-//   });
-//   $("#6").click(function() {
-//     $("#6").append('X');
-//   });
-//   $("#7").click(function() {
-//     $("#7").append('X');
-//   });
-//   $("#8").click(function() {
-//     $("#8").append('X');
-//   });
-//   $("#9").click(function() {
-//     $("#9").append('X');
-//   });
-//
-//
-//
-// });
 
 var player1="" , player2="", turn = "";
 var grid =  [[0,0,0],[0,0,0],[0,0,0]];
@@ -201,3 +132,48 @@ function winnerCheck(n,playerName){
   }
   return false;
 }
+
+
+//
+//
+//
+//
+//
+// var Game = (function() {
+//
+//   var togglePlayer = function(message){
+//     $('.message').html(message);
+//   };
+// })
+//
+//
+//
+// var gameOver = function() {
+//   var winCases =  [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[7,5,3]];
+//   tableIndex = -1;
+//
+//   $.each(winCases, function(index, winCases) {
+//     if (allEqual(winCase)) {
+//      tableIndex = index;
+//      return false;
+//     }
+//   });
+//   if (tableIndex !== -1) {
+//     return winCases[ tableIndex];
+//   }else if (moves === 9) {
+//     return true;
+//   }
+//     else {
+//     return false;
+//   }
+// };
+//
+//
+//
+// $(document).ready(function() {
+//
+//   $("#1").click(function() {
+//     $("#1").append('<img src="img/playerX.jpg">');
+//   });
+
+// });
