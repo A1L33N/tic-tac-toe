@@ -4,140 +4,115 @@ function getRandomIntInclusive(min, max) {
 
 $(document).ready(function() {
 
-  var playerType = ""
+  var playerType = "";
   var square = $('.square');
   var player = 'O';
   var currentPlayer = $('#player');
   var val = square.attr('val');
   var win = 0;
-  var turns = 0
+  var turns = 0;
   currentPlayer.html(player);
 
   $("form#opponent-form").submit(function(){
     playerType = $('select').val();
     $('.play-game').show();
+
     $('.select-opponent').hide();
+    if (playerType == "Human") {
+      console.log("hi");
+
+      square.click(function() {
+
+        if($(this).html() === '' && win != 'O' && win != 'X'){
+          $(this).html(player);
+
+          if (player === 'O') {
+            player = 'X';
+            currentPlayer.html(player);
+          } else {
+            player = 'O';
+            currentPlayer.html(player);
+          }
+        } $('#now').text(player);
+      });
+
+    } else {
+      square.click(function(){
+        // debugger;
+        turns++;
+        if($(this).html() === '' && win != 'O' && win != 'X'){
+          $(this).html(player);
+          var computerMove = "";
+          var move = " ";
+
+          while ((move !== "") && (turns < 8)) {
+            computerMove = getRandomIntInclusive(0,8);
+            computerMove = computerMove.toString();
+            console.log(computerMove);
+            move = document.getElementById(computerMove).innerHTML;
+
+            if (move === "") {
+              $('#' + computerMove).text("X");
+              turns++;
+
+            }
+          }
+        }
+
+      })
+    };
+
     event.preventDefault();
   });
-
-
+  console.log(playerType);
   $('#now').text(player);
 
-  if (playerType === "Human") {
-
-    square.click(function(){
-      if($(this).html() === '' && win != 'O' && win != 'X'){
-       $(this).html(player);
-
-      //  playerToggle(player);
-        if (player === 'O') {
-          player = 'X'
-          currentPlayer.html(player)
-        } else {
-          player = 'O'
-          currentPlayer.html(player);
-        }
-      } $('#now').text(player);
-    });
-
-  } else {
-    square.click(function(){
-      turns++
-      if($(this).html() === '' && win != 'O' && win != 'X'){
-        $(this).html(player);
-        var computerMove = "";
-        var move = " ";
-
-        while ((move !== "") && (turns < 8)) {
-        computerMove = getRandomIntInclusive(0,8);
-        computerMove = computerMove.toString();
-        console.log(computerMove)
-        debugger;
-        move = document.getElementById(computerMove).innerHTML;
-        // debugger;
-
-        if (move === "") {
-          $('#' + computerMove).text("X");
-          turns++
-
-        }
-      }
-
-
-
-        // if (player === 'O') {
-        //   player = 'X'
-        //   currentPlayer.html(player)
-        // } else {
-        //   player = 'O'
-        //   currentPlayer.html(player);
-        // }
-      // } $('#now').text(player);
-    }
-    });
-
-  }
-
-  /* player re-initialized to 'O' after exiting function playerToggle
-     -> moved player toggle algorithm inside click event
-  */
-  // function playerToggle(player){
-  //   debugger;
-  //   if (player === 'J'){
-  //     player = 'X'
-  //     currentPlayer.html(player)
-  //   } else {
-  //     player = 'O'
-  //     currentPlayer.html(player);
-  //   }
-  // }
 
   setInterval(function(){
-  if(win === 0){
-   var value0 = $('#0').html();
-   var value1 = $('#1').html();
-   var value2 = $('#2').html();
-   var value3 = $('#3').html();
-   var value4 = $('#4').html();
-   var value5 = $('#5').html();
-   var value6 = $('#6').html();
-   var value7 = $('#7').html();
-   var value8 = $('#8').html();
+    if(win === 0){
+      var value0 = $('#0').html();
+      var value1 = $('#1').html();
+      var value2 = $('#2').html();
+      var value3 = $('#3').html();
+      var value4 = $('#4').html();
+      var value5 = $('#5').html();
+      var value6 = $('#6').html();
+      var value7 = $('#7').html();
+      var value8 = $('#8').html();
 
-    if(value0 === 'O' && value1 ==='O' && value2 ==='O' || value0 === 'X' && value1 ==='X' && value2 ==='X'){
-       win = value0;
-   } else if(value3 === 'O' && value4 === 'O' && value5 === 'O' || value3 === 'X' && value4 === 'X' && value5 === 'X' ){
-       win = value3;
-   } else if(value6 === 'O' && value7 === 'O' && value8 === 'O' || value6 === 'X' && value7 === 'X' && value8 === 'X' ){
-       win = value6;
-   } else if(value0 === 'O' && value4 === 'O' && value8 === 'O' || value0 === 'X' && value4 === 'X' && value8 === 'X'){
-       win = value0;
-   } else if(value2 === 'O' && value4 === 'O' && value6 === 'O' || value2 === 'X' && value4 === 'X' && value6 === 'X' ){
-       win = value2;
-   } else if(value2 === 'O' && value5 === 'O' && value8 === 'O' || value2 === 'X' && value5 === 'X' && value8 === 'X' ){
-       win = value2;
-   } else if(value0 === 'O' && value3 === 'O' && value6 === 'O' || value0 === 'X' && value3 === 'X' && value6 === 'X' ){
-       win = value0;
-   } else if(value1 === 'O' && value4 === 'O' && value7 === 'O' || value1 === 'X' && value4 === 'X' && value7 === 'X' ){
-       win = value1;
-   } else if( value1 != '' && value2 != '' && value3 != '' && value4 != '' && value5 != '' && value6 != '' && value7 != '' && value8 != ''){
-     win = 'nothing';
-   }
+      if(value0 === 'O' && value1 ==='O' && value2 ==='O' || value0 === 'X' && value1 ==='X' && value2 ==='X'){
+        win = value0;
+      } else if(value3 === 'O' && value4 === 'O' && value5 === 'O' || value3 === 'X' && value4 === 'X' && value5 === 'X' ){
+        win = value3;
+      } else if(value6 === 'O' && value7 === 'O' && value8 === 'O' || value6 === 'X' && value7 === 'X' && value8 === 'X' ){
+        win = value6;
+      } else if(value0 === 'O' && value4 === 'O' && value8 === 'O' || value0 === 'X' && value4 === 'X' && value8 === 'X'){
+        win = value0;
+      } else if(value2 === 'O' && value4 === 'O' && value6 === 'O' || value2 === 'X' && value4 === 'X' && value6 === 'X' ){
+        win = value2;
+      } else if(value2 === 'O' && value5 === 'O' && value8 === 'O' || value2 === 'X' && value5 === 'X' && value8 === 'X' ){
+        win = value2;
+      } else if(value0 === 'O' && value3 === 'O' && value6 === 'O' || value0 === 'X' && value3 === 'X' && value6 === 'X' ){
+        win = value0;
+      } else if(value1 === 'O' && value4 === 'O' && value7 === 'O' || value1 === 'X' && value4 === 'X' && value7 === 'X' ){
+        win = value1;
+      } else if( value1 != '' && value2 != '' && value3 != '' && value4 != '' && value5 != '' && value6 != '' && value7 != '' && value8 != ''){
+        win = 'nothing';
+      }
 
-} else {
-  if(win != 'nothing'){
-   $('#hd').html('Congratulations to the player: <b class="win">'+win+ '<b/>');
- } else {
-   $('#hd').html('<b class="win">Neither player won the game.<b/>');
- }
-}
-},100);
+    } else {
+      if(win != 'nothing'){
+        $('#hd').html('Congratulations to the player: <b class="win">'+win+ '<b/>');
+      } else {
+        $('#hd').html('<b class="win">Neither player won the game.<b/>');
+      }
+    }
+  },100);
 
   $(".reset").click(function(){
     $('.square').text("");
     turns = 0
   });
-
 });
 
 
