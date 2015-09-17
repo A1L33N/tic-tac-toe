@@ -1,4 +1,52 @@
 
+$(document).ready(function()){
+  
+  var square = $('.square');
+  var player = 'O';
+  var currentPlayer = $('#player');
+  var val = square.attr('val');
+  var win = 0;
+  currentPLayer.html(player);
+  
+  square.click(function(){
+    if($(this).html() === '' && win != 'O' && win != 'X'){
+     $(this).html(player);
+     playerToggle(player);
+    }
+  });
+  
+  function playerToggle(player){
+    if(player === 'O'){
+      now = 'X'
+      currentPlayer.html(now)
+    } else {
+      now = 'O'
+      currentPlayer.html('O');
+    }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var player1="" , player2="", turn = "";
 var grid =  [[0,0,0],[0,0,0],[0,0,0]];
 var hasWinner = 0, moveCount=0;
