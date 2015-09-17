@@ -37,3 +37,12 @@ td {
 .play-game {
   display: none;
 }
+
+.reset {
+  display: none;
+  margin: 30px;
+}
+
+#playing {
+  margin: 20px;
+}

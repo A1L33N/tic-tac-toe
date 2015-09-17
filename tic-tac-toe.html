@@ -10,46 +10,50 @@
   <body>
     <div class="container">
       <h1 align= "center">Tic Tac Toe</h1>
-      <header id="hd">
-        <div id="playing"> Playing now: <b><span id="now"></span><b/> </div>
-      </header>
+
       <div class="select-opponent">
-        <form id="opponent-form">
+        <center><form id="opponent-form">
           <label for="opponent-choide">Who are you playing against?</label>
           <select class="form-control">
             <option value="Human">Human</option>
             <option value="Computer">Computer</option>
           </select>
           <button id="start-game" type="submit">Start Game</button>
-        </form>
+        </form></center>
       </div>
-      <div class="play-game">
-        <section id="game">
-          <div id="board">
-            <center><table>
-              <tr id="row">
-                <td class="square" id = "0"></td>
-                <td class="square v" id = "1"></td>
-                <td class="square" id = "2"></td>
-              </tr>
-              <tr id="row">
-                <td class="square h" id = "3"></td>
-                <td class="square v h" id = "4"></td>
-                <td class="square h" id = "5"></td>
-              </tr>
-              <tr id="row">
-                <td class="square" id = "6"></td>
-                <td class="square v" id = "7"></td>
-                <td class="square" id = "8"></td>
-              </tr>
-            </table><center>
-          </div>
-        </section>
+      <div class="row">
+        <div class="play-game">
+          <center><div id="playing"> Playing now: <b><span id="now"></span><b/> </div><center>
+          <section id="game">
+            <div id="board">
+              <center><table>
+                <tr id="row">
+                  <td class="square" id = "0"></td>
+                  <td class="square v" id = "1"></td>
+                  <td class="square" id = "2"></td>
+                </tr>
+                <tr id="row">
+                  <td class="square h" id = "3"></td>
+                  <td class="square v h" id = "4"></td>
+                  <td class="square h" id = "5"></td>
+                </tr>
+                <tr id="row">
+                  <td class="square" id = "6"></td>
+                  <td class="square v" id = "7"></td>
+                  <td class="square" id = "8"></td>
+                </tr>
+              </table><center>
+            </div>
+          </section>
+        </div>
       </div>
         <br>
+      <center><div id="hd">
+
+      </div></center>
 
       <div class="reset">
-        <span class="btn btn-default">Play another game</span>
+        <center><span class="btn btn-default">Play another game</span></center>
       </div>
 
     </div>

@@ -16,7 +16,7 @@ $(document).ready(function() {
   $("form#opponent-form").submit(function(){
     playerType = $('select').val();
     $('.play-game').show();
-
+    $('.reset').show();
     $('.select-opponent').hide();
     if (playerType == "Human") {
       console.log("hi");
@@ -38,7 +38,6 @@ $(document).ready(function() {
 
     } else {
       square.click(function(){
-        // debugger;
         turns++;
         if($(this).html() === '' && win != 'O' && win != 'X'){
           $(this).html(player);
@@ -64,7 +63,7 @@ $(document).ready(function() {
 
     event.preventDefault();
   });
-  console.log(playerType);
+
   $('#now').text(player);
 
 
@@ -102,7 +101,7 @@ $(document).ready(function() {
 
     } else {
       if(win != 'nothing'){
-        $('#hd').html('Congratulations to the player: <b class="win">'+win+ '<b/>');
+        $('#hd').html('Congratulations to player: <b class="win">'+win+ '<b/>');
       } else {
         $('#hd').html('<b class="win">Neither player won the game.<b/>');
       }
@@ -111,7 +110,9 @@ $(document).ready(function() {
 
   $(".reset").click(function(){
     $('.square').text("");
-    turns = 0
+    $('#hd').html('')
+    turns = 0;
+    win = 0;
   });
 });
 
