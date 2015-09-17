@@ -178,3 +178,11 @@ function winnerCheck(n,playerName){
 //   });
 
 // });
+// var array1= [19, 18, 11];
+// undefined
+// var array2= [19, 11, 18];
+// undefined
+// if(array1.sort().join(',')=== array2.sort().join(',')){
+//     alert('same members');
+// }
+// else alert('not a match');
