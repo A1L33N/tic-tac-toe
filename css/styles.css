@@ -46,3 +46,7 @@ td {
 #playing {
   margin: 20px;
 }
+
+.new-opponent {
+  display: none;
+}

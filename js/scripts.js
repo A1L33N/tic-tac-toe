@@ -17,9 +17,9 @@ $(document).ready(function() {
     playerType = $('select').val();
     $('.play-game').show();
     $('.reset').show();
+    $('.new-opponent').show();
     $('.select-opponent').hide();
     if (playerType == "Human") {
-      console.log("hi");
 
       square.click(function() {
 
@@ -57,7 +57,6 @@ $(document).ready(function() {
             }
           }
         }
-
       })
     };
 
@@ -113,6 +112,14 @@ $(document).ready(function() {
     $('#hd').html('')
     turns = 0;
     win = 0;
+    // playerType = "";
+    // $('.select-opponent').show();
+    // $('.play-game').hide();
+
+  });
+
+  $('.new-opponent').click(function() {
+    location.reload();
   });
 });
 
