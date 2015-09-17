@@ -8,9 +8,16 @@ $(document).ready(function() {
   var win = 0;
   currentPlayer.html(player);
 
+  // $("#board").hover(function() {
+  //   $("td").css("cursor", player == 'X' ? "url(/css/img/playerX.jpg), auto" : "wait");
+  //   $("td").css('cursor', 'url(playerO.png), auto');
+  // });
+  $('#now').text(player);
+
   square.click(function(){
     if($(this).html() === '' && win != 'O' && win != 'X'){
      $(this).html(player);
+
     //  playerToggle(player);
       if (player === 'O') {
         player = 'X'
@@ -19,7 +26,7 @@ $(document).ready(function() {
         player = 'O'
         currentPlayer.html(player);
       }
-    }
+    } $('#now').text(player);
   });
 
   /* player re-initialized to 'O' after exiting function playerToggle
@@ -76,6 +83,10 @@ $(document).ready(function() {
  }
 }
 },100);
+
+  $(".reset").click(function(){
+    $('.square').text("");
+  });
 
 });
 
