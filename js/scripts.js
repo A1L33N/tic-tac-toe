@@ -34,8 +34,8 @@ $("#playButton").click(function (){
     init();
   }
 
-  player1Name = $("#player-1-inp").val();
-  player2Name = $("#player-2-inp").val();
+  player1Name = $("#player1").val();
+  player2Name = $("#player2").val();
 
   if(player1Name=="" || player2Name==""){
     alert("Please set player all the names.");
