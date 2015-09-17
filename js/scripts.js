@@ -57,7 +57,7 @@ $(document).ready(function() {
             }
           }
         }
-      })
+      });
     };
 
     event.preventDefault();
@@ -94,7 +94,7 @@ $(document).ready(function() {
         win = value0;
       } else if(value1 === 'O' && value4 === 'O' && value7 === 'O' || value1 === 'X' && value4 === 'X' && value7 === 'X' ){
         win = value1;
-      } else if( value1 != '' && value2 != '' && value3 != '' && value4 != '' && value5 != '' && value6 != '' && value7 != '' && value8 != ''){
+      } else if( value1 !== '' && value2 !== '' && value3 !== '' && value4 !== '' && value5 !== '' && value6 !== '' && value7 !== '' && value8 !== ''){
         win = 'nothing';
       }
 
@@ -109,7 +109,7 @@ $(document).ready(function() {
 
   $(".reset").click(function(){
     $('.square').text("");
-    $('#hd').html('')
+    $('#hd').html('');
     turns = 0;
     win = 0;
     // playerType = "";
