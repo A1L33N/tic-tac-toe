@@ -5,11 +5,15 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Address book</title>
+    <title>Tic Tac Toe</title>
   </head>
   <body>
     <div class="container">
       <h1 align= "center">Tic Tac Toe</h1>
+      <header id="hd"> 
+        <div id="playing"> Playing now: <b><span id="now"></span><b/> </div>
+      </header>
+      <section id="game">
         <div id="board">
           <table>
             <tr id="row">
@@ -29,16 +33,10 @@
             </tr>
           </table>
         </div>
+      </section>
         <br>
 
-        <div id="dashboard">
-          <input type="text" id="player1" placeholder="Enter player 1">
-          <input type="text" id="player2" placeholder="Enter player 2">
-          <button id="playButton">Play!</button>
-          <h1 id="board"></h1>
-        </div>
-
-      </div>
+              </div>
       
     </div>
   </body>
