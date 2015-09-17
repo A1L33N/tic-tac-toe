@@ -109,30 +109,7 @@ $(".col").click(function (){
     }
   }
 });
-function winnerCheck(n,playerName){
-  if(
 
-    (grid[0][0]==n && grid[0][1]==n && grid[0][2]==n) ||
-    (grid[1][0]==n && grid[1][1]==n && grid[1][2]==n) ||
-    (grid[2][0]==n && grid[2][1]==n && grid[2][2]==n) ||
-
-    (grid[0][0]==n && grid[1][0]==n && grid[2][0]==n) ||
-    (grid[0][1]==n && grid[1][1]==n && grid[2][1]==n) ||
-    (grid[0][2]==n && grid[1][2]==n && grid[2][2]==n) ||
-
-    (grid[0][0]==n && grid[1][1]==n && grid[2][2]==n)||
-    (grid[0][2]==n && grid[1][1]==n && grid[2][0]==n)
-
-
-  ){
-    boardMsg(playerName+" won the game!");
-    hasWinner = 1;
-    moveCount=0;
-    $("#playButton").text("Play again");
-    return true;
-  }
-  return false;
-}
 
 
 //
