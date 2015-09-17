@@ -6,6 +6,17 @@ var hasWinner = 0, moveCount=0;
 function boardMsg(x){
   return $("#board").text(x);
 }
+
+function init(){
+  turn = "";
+  grid =  [[0,0,0],[0,0,0],[0,0,0]];
+  boardMsg("");
+  $(".col").map(function() {
+    $(this).text("");
+  }).get();
+  hasWinner = 0;
+  moveCount=0;
+}
 function setTurn(){
   var r = Math.floor((Math.random() * 2) + 1);
   hasWinner=0;
@@ -17,16 +28,6 @@ function setTurn(){
     turn = player2Name;
     boardMsg(player2Name+"'s turn now!");
   }
-}
-function init(){
-  turn = "";
-  grid =  [[0,0,0],[0,0,0],[0,0,0]];
-  boardMsg("");
-  $(".col").map(function() {
-    $(this).text("");
-  }).get();
-  hasWinner = 0;
-  moveCount=0;
 }
 $("#playButton").click(function (){
 
