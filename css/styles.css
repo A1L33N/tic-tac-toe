@@ -1,11 +1,12 @@
 #board{
 
   margin: 0;
-  position: absolute;
+  /*position: absolute;*/
   top: 60%;
   left: 40%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%) }
+  /*margin-right: -50%;
+  transform: translate(-50%, -50%) */
+  }
 
 
 /*.button{
@@ -31,4 +32,8 @@
 
 td {
   text-align: center;
+}
+
+.play-game {
+  display: none;
 }

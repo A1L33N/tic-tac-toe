@@ -1,33 +1,82 @@
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 $(document).ready(function() {
 
+  var playerType = ""
   var square = $('.square');
   var player = 'O';
   var currentPlayer = $('#player');
   var val = square.attr('val');
   var win = 0;
+  var turns = 0
   currentPlayer.html(player);
 
-  // $("#board").hover(function() {
-  //   $("td").css("cursor", player == 'X' ? "url(/css/img/playerX.jpg), auto" : "wait");
-  //   $("td").css('cursor', 'url(playerO.png), auto');
-  // });
+  $("form#opponent-form").submit(function(){
+    playerType = $('select').val();
+    $('.play-game').show();
+    $('.select-opponent').hide();
+    event.preventDefault();
+  });
+
+
   $('#now').text(player);
 
-  square.click(function(){
-    if($(this).html() === '' && win != 'O' && win != 'X'){
-     $(this).html(player);
+  if (playerType === "Human") {
 
-    //  playerToggle(player);
-      if (player === 'O') {
-        player = 'X'
-        currentPlayer.html(player)
-      } else {
-        player = 'O'
-        currentPlayer.html(player);
+    square.click(function(){
+      if($(this).html() === '' && win != 'O' && win != 'X'){
+       $(this).html(player);
+
+      //  playerToggle(player);
+        if (player === 'O') {
+          player = 'X'
+          currentPlayer.html(player)
+        } else {
+          player = 'O'
+          currentPlayer.html(player);
+        }
+      } $('#now').text(player);
+    });
+
+  } else {
+    square.click(function(){
+      turns++
+      if($(this).html() === '' && win != 'O' && win != 'X'){
+        $(this).html(player);
+        var computerMove = "";
+        var move = " ";
+
+        while ((move !== "") && (turns < 8)) {
+        computerMove = getRandomIntInclusive(0,8);
+        computerMove = computerMove.toString();
+        console.log(computerMove)
+        debugger;
+        move = document.getElementById(computerMove).innerHTML;
+        // debugger;
+
+        if (move === "") {
+          $('#' + computerMove).text("X");
+          turns++
+
+        }
       }
-    } $('#now').text(player);
-  });
+
+
+
+        // if (player === 'O') {
+        //   player = 'X'
+        //   currentPlayer.html(player)
+        // } else {
+        //   player = 'O'
+        //   currentPlayer.html(player);
+        // }
+      // } $('#now').text(player);
+    }
+    });
+
+  }
 
   /* player re-initialized to 'O' after exiting function playerToggle
      -> moved player toggle algorithm inside click event
@@ -86,6 +135,7 @@ $(document).ready(function() {
 
   $(".reset").click(function(){
     $('.square').text("");
+    turns = 0
   });
 
 });
