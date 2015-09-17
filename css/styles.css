@@ -50,3 +50,7 @@ td {
 .new-opponent {
   display: none;
 }
+
+table {
+  background: url('css/img/blackboard-913648-1280.jpg') no-repeat;
+}
