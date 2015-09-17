@@ -1,31 +1,43 @@
 
-$(document).ready(function()){
-  
+$(document).ready(function() {
+
   var square = $('.square');
   var player = 'O';
   var currentPlayer = $('#player');
   var val = square.attr('val');
   var win = 0;
-  currentPLayer.html(player);
-  
+  currentPlayer.html(player);
+
   square.click(function(){
     if($(this).html() === '' && win != 'O' && win != 'X'){
      $(this).html(player);
-     playerToggle(player);
+    //  playerToggle(player);
+      if (player === 'O') {
+        player = 'X'
+        currentPlayer.html(player)
+      } else {
+        player = 'O'
+        currentPlayer.html(player);
+      }
     }
   });
-  
-  function playerToggle(player){
-    if(player === 'O'){
-      now = 'X'
-      currentPlayer.html(player)
-    } else {
-      now = 'O'
-      currentPlayer.html('O');
-    }
-    }
-    setInterval(function(){
-  if(win === 0){  
+
+  /* player re-initialized to 'O' after exiting function playerToggle
+     -> moved player toggle algorithm inside click event
+  */
+  // function playerToggle(player){
+  //   debugger;
+  //   if (player === 'J'){
+  //     player = 'X'
+  //     currentPlayer.html(player)
+  //   } else {
+  //     player = 'O'
+  //     currentPlayer.html(player);
+  //   }
+  // }
+
+  setInterval(function(){
+  if(win === 0){
    var value0 = $('#0').html();
    var value1 = $('#1').html();
    var value2 = $('#2').html();
@@ -35,9 +47,9 @@ $(document).ready(function()){
    var value6 = $('#6').html();
    var value7 = $('#7').html();
    var value8 = $('#8').html();
-   
+
     if(value0 === 'O' && value1 ==='O' && value2 ==='O' || value0 === 'X' && value1 ==='X' && value2 ==='X'){
-       win = value0;        
+       win = value0;
    } else if(value3 === 'O' && value4 === 'O' && value5 === 'O' || value3 === 'X' && value4 === 'X' && value5 === 'X' ){
        win = value3;
    } else if(value6 === 'O' && value7 === 'O' && value8 === 'O' || value6 === 'X' && value7 === 'X' && value8 === 'X' ){
@@ -48,13 +60,13 @@ $(document).ready(function()){
        win = value2;
    } else if(value2 === 'O' && value5 === 'O' && value8 === 'O' || value2 === 'X' && value5 === 'X' && value8 === 'X' ){
        win = value2;
-   } else if(value0 === 'O' && value3 === 'O' && value6 === 'O' || value0 === 'X' && value3 === 'X' && value6 === 'X' ){ 
+   } else if(value0 === 'O' && value3 === 'O' && value6 === 'O' || value0 === 'X' && value3 === 'X' && value6 === 'X' ){
        win = value0;
    } else if(value1 === 'O' && value4 === 'O' && value7 === 'O' || value1 === 'X' && value4 === 'X' && value7 === 'X' ){
        win = value1;
    } else if( value1 != '' && value2 != '' && value3 != '' && value4 != '' && value5 != '' && value6 != '' && value7 != '' && value8 != ''){
-     win = 'nothing';   
-   }   
+     win = 'nothing';
+   }
 
 } else {
   if(win != 'nothing'){
@@ -64,7 +76,7 @@ $(document).ready(function()){
  }
 }
 },100);
-  
+
 });
 
 
